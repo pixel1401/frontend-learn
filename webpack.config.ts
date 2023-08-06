@@ -1,0 +1,28 @@
+import { Configuration } from "webpack";
+import path from "path";
+import { buildWebPackConfig } from "./config/build/buildWebpackConfig";
+import { BuildEnv, BuildMode, BuildOptions } from "./config/build/types/config";
+
+
+
+
+export default (env: BuildEnv) => {
+
+    const modeDev: BuildMode = env.mode ?? 'development';
+
+    const options = (modeDev: BuildMode): BuildOptions => ({
+        mode: modeDev,
+        paths: {
+            entry: path.resolve(__dirname, 'src', 'index.tsx'),
+            build: path.resolve(__dirname, 'build'),
+            html: path.resolve(__dirname, 'public', 'index.html'),
+        },
+        isDev: modeDev == 'development' ? true : false,
+        port: env.port ?? 3000
+    });
+
+    const config: Configuration = buildWebPackConfig(options(modeDev));
+
+
+    return config;
+};
