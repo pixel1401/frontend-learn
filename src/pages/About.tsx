@@ -1,10 +1,11 @@
-import { Counter } from "src/components/Counter";
+import { Counter } from "@/components/Counter";
 
 
 const AboutPage =  ()=>  {
     return (
         <>
             <h1>Abount PAge</h1>
+            <Counter/>
         </>
     )
 }

@@ -16,6 +16,7 @@ export default (env: BuildEnv) => {
             entry: path.resolve(__dirname, 'src', 'index.tsx'),
             build: path.resolve(__dirname, 'build'),
             html: path.resolve(__dirname, 'public', 'index.html'),
+            aliasSrc : path.resolve(__dirname , 'src/')
         },
         isDev: modeDev == 'development' ? true : false,
         port: env.port ?? 3000
