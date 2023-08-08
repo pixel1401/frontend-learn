@@ -1,25 +1,26 @@
-import { Suspense, lazy } from 'react';
-import { Route, Routes } from "react-router-dom";
-import "./index.scss";
+import React, {Suspense} from 'react';
+import {Link, Route, Routes} from 'react-router-dom';
+import './styles/index.scss';
+import { useTheme } from '@/theme/useTheme';
+import { AboutPageAsync } from '@/pages/AboutPage/AboutPage.async';
+import { MainPageAsync } from '@/pages/MainPage/MainPage.async';
 
-import NavBar from './components/NavBar';
+const App = () => {
+    const {theme, toggleTheme} = useTheme();
 
-const MainPage = lazy(() => import("./pages/MainPage"));
-const AboutPage = lazy(() => import("./pages/About"));
+    return (
+        <div className={`app ${theme}`}>
+            <button onClick={toggleTheme}>TOGGLE</button>
+            <Link to={'/'}>Главная</Link>
+            <Link to={'/about'}>О сайте</Link>
+            <Suspense fallback={<div>Loading...</div>}>
+                <Routes>
+                    <Route path={'/about'} element={<AboutPageAsync />} />
+                    <Route path={'/'} element={<MainPageAsync />} />
+                </Routes>
+            </Suspense>
+        </div>
+    );
+};
 
-
-
-
-export function App() {
-
-  return (
-    <div className="app">
-      <NavBar/>
-      <Suspense fallback={<h1>Loading</h1>}>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/about" element={<AboutPage />} />
-        </Routes>
-      </Suspense>
-    </div>)
-}
+export default App;
