@@ -1,5 +1,5 @@
-import { classNames } from '@/helpers/classname/classname';
 import React from 'react';
+import { classNames } from 'shared';
 
 const AboutPage = () => {
     return (
