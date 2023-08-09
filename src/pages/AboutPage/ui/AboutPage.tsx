@@ -1,10 +1,18 @@
-import React from 'react';
-import { classNames } from 'shared';
+import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const AboutPage = () => {
+
+    const { t, i18n } = useTranslation();
+
+    useEffect(() => {
+        i18n.changeLanguage('en');
+    } , [])
+
     return (
-        <div className={`${classNames('erzhan' , {'hide' : false} , ['secondClassa'])}`}>
+        <div>
             ABOUT PAGE
+            {t('title')}
         </div>
     );
 };
