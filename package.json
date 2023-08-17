@@ -4,20 +4,18 @@
   "description": "Learn frontend upgrade course",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "webpack serve --env port=3000",
-    "prod" : "webpack  --env mode=production",
-    "dev" : "webpack  --env mode=development",
+    "test": "jest",
+    "start": "webpack serve --env port=3000",
+    "prod": "webpack  --env mode=production",
+    "dev": "webpack  --env mode=development",
     "lint": "eslint --fix --ext .js,.jsx,.tsx,.ts .",
     "lint:check": "eslint  --ext .js,.jsx,.tsx,.ts .",
     "lint:scss:check": "npx stylelint \"**/*.scss\"",
-    "lint:scss": "npx stylelint \"**/*.scss\" --fix"
-
-
+    "lint:scss": "npx stylelint \"**/*.scss\" --fix",
+    "unit" : "jest --config ./config/jest/jest.config.ts"
   },
   "author": "Erzhan",
   "license": "ISC",
-
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
