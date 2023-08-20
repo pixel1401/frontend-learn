@@ -1,5 +1,9 @@
 {
     "typescript.tsdk": "node_modules/typescript/lib",
     "dart.allowTestsOutsideTestFolder": false,
-    "explorer.compactFolders": false
+    "explorer.compactFolders": false,
+    "i18n-ally.localesPaths": [
+        "public/locales"
+    ],
+    "i18n-ally.keystyle": "nested"
 }

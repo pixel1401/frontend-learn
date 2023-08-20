@@ -2,9 +2,7 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
-        jest: true,
-        babel: true,
-        'jest/global': true
+        'jest/globals': true,
     },
     extends: [
         'plugin:react/recommended',
@@ -22,7 +20,7 @@ module.exports = {
         'react',
         '@typescript-eslint',
         'i18next',
-        'jest'
+        'jest',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -42,7 +40,8 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'max-len': 'off',
-        
+        'linebreak-style': ['off'],
+
     },
     globals: {
         __IS_DEV__: true,
