@@ -1,7 +1,7 @@
-import React, { ErrorInfo, ReactNode } from 'react';
+import React, { ErrorInfo } from 'react';
 
 interface ErrorBoundaryProps {
-    children : ReactNode
+    children : React.ReactNode
 }
 
 interface ErrorBoundaryState {
@@ -15,17 +15,10 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
     }
 
     static getDerivedStateFromError(error : Error) {
-        // Update state so the next render will show the fallback UI.
         return { hasError: true };
     }
 
     componentDidCatch(error : Error, info : ErrorInfo) {
-        // Example "componentStack":
-        //   in ComponentThatThrows (created by App)
-        //   in ErrorBoundary (created by App)
-        //   in div (created by App)
-        //   in App
-        // logErrorToMyService(error, info.componentStack);
         console.log(error);
     }
 
@@ -36,8 +29,12 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
         // You can render any custom fallback UI
             return <div>aw</div>;
         }
-
-        return children;
+        return (
+            // eslint-disable-next-line react/jsx-no-useless-fragment
+            <>
+                { children }
+            </>
+        );
     }
 }
 
