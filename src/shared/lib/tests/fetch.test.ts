@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { getData, delay } from './fetch';
+import fetchMock from 'jest-fetch-mock';
+import { getData, delay, getFetch } from './fetch';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -36,5 +37,13 @@ describe('fetch test Data', () => {
 
         expect(mockedAxios.get).toBeCalledTimes(1);
         expect(data).toEqual(['1', '2', '3']);
+    });
+
+    test('fetch test', async () => {
+        // fetchMock.mockResponseOnce(JSON.stringify(response.data));
+        fetchMock.mockResolvedValue(response.data);
+        const result = await getFetch();
+        const actualFirstThree = result.slice(0, 3);
+        expect(actualFirstThree).toEqual(['1', '2', '3']);
     });
 });

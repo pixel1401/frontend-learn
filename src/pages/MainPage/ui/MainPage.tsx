@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { getData } from 'shared/lib/tests/fetch';
+import { getFetch } from 'shared/lib/tests/fetch';
 
 const MainPage = () => {
     const { t, i18n } = useTranslation();
 
     const start = async () => {
-        console.log(await getData());
+        console.log(await getFetch());
     };
 
     useEffect(() => {
@@ -16,6 +16,7 @@ const MainPage = () => {
     return (
         <div>
             {t('MainPage')}
+            <button type="button">Hello..</button>
         </div>
     );
 };

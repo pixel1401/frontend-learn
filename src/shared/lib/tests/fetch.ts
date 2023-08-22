@@ -19,7 +19,12 @@ export const delay = (callback : Function, ms : number) => new Promise((resolve)
 });
 
 export async function getFetch() {
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-    const response = await res.json();
-    return response;
+    try {
+        const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+        const response = await res.json();
+        const newArr = response.map((elem : any) => elem.id);
+        return mapArrayNumberToString(newArr);
+    } catch (error) {
+        return [];
+    }
 }

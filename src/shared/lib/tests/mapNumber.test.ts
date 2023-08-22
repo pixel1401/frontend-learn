@@ -1,4 +1,4 @@
-import { mapArrayNumberToString } from './mapNumber';
+import { mapArrayNumberToString } from 'shared/lib';
 
 describe('Map array Number to String array', () => {
     test('fist test', () => {

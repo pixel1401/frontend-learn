@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`main page Test btn 1`] = `
+<div>
+  MainPage
+  <button
+    type="button"
+  >
+    Hello
+  </button>
+</div>
+`;
+
+exports[`main page Test btn: new 1`] = `
+<div>
+  MainPage
+  <button
+    type="button"
+  >
+    Hello..
+  </button>
+</div>
+`;
