@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from 'path';
+
 export default {
     clearMocks: true,
     testEnvironment: 'jsdom',
@@ -31,5 +33,10 @@ export default {
     coveragePathIgnorePatterns: [
         '\\\\node_modules\\\\',
     ],
+
+    moduleNameMapper: {
+        '\\.(css|scss)$': 'identity-obj-proxy',
+        '^.+\\.svg$': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    },
 
 };
