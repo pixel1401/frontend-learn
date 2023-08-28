@@ -15,6 +15,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
         setCollapsed((prev) => !prev);
     };
 
+    // eslint-disable-next-line no-unused-vars
     const { lang, setLang } = useLang();
 
     return (

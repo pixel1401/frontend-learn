@@ -3,7 +3,9 @@ import { ButtonHTMLAttributes, FC } from 'react';
 import cls from './Button.module.scss';
 
 export enum ThemeButton {
+    // eslint-disable-next-line no-unused-vars
     CLEAR = 'clear',
+    // eslint-disable-next-line no-unused-vars
     OUTLINE = 'outline',
 }
 

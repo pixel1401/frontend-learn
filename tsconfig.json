@@ -36,7 +36,8 @@
     "allowSyntheticDefaultImports": true,
   },
   "include": [
-    "src/**/*",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     "./config/jest/jest-setup.ts"
   ],
   "ts-node": {

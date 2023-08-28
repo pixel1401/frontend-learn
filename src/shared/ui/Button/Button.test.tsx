@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 
 describe('Button', () => {
