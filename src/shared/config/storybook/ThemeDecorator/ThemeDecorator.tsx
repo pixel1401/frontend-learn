@@ -19,15 +19,8 @@ interface ChangeThemeProps {
     children : ReactNode
 }
 
-const ChangeTheme : FC<ChangeThemeProps> = ({ themeArg, children }) => {
-    const { theme, toggleTheme } = useTheme();
-
-    useEffect(() => {
-        toggleTheme();
-    }, []);
-    return (
-        <div className={`app ${themeArg}`}>
-            { children }
-        </div>
-    );
-};
+const ChangeTheme : FC<ChangeThemeProps> = ({ themeArg, children }) => (
+    <div className={`app ${themeArg}`}>
+        { children }
+    </div>
+);
