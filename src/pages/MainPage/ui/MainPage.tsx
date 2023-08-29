@@ -1,22 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { getFetch } from 'shared/lib/tests/fetch';
 
-const MainPage = () => {
-    const { t, i18n } = useTranslation();
-
-    const start = async () => {
-        console.log(await getFetch());
-    };
-
-    useEffect(() => {
-        start();
-    }, []);
+const MainPage : FC = () => {
+    const { t } = useTranslation();
 
     return (
         <div>
-            {t('MainPage')}
-            <button type="button">Hello..</button>
+            {t('Главная страница')}
         </div>
     );
 };

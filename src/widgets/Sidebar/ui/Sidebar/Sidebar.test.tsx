@@ -1,21 +1,22 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { renderWithTranslation } from 'shared/lib/jest/renderWithTranslation';
-import { Sidebar } from './Sidebar';
+import { Sidebar } from 'widgets/Sidebar/ui/Sidebar/Sidebar';
+import {
+    renderWithTranslation,
+} from 'shared/lib/tests/renderWithTranslation/renderWithTranslation';
+import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
 
-describe('Sidebar tests', () => {
-    test('is show Sidebar', () => {
-        render(renderWithTranslation(<Sidebar />));
-        const sidebar = screen.getByTestId('sidebar');
-        expect(sidebar).toBeInTheDocument();
-        screen.debug();
+describe('Sidebar', () => {
+    test('with only first param', () => {
+        componentRender(<Sidebar />);
+        expect(screen.getByTestId('sidebar')).toBeInTheDocument();
     });
 
-    test('toggle close or open sidebar', () => {
-        render(renderWithTranslation(<Sidebar />));
-        const sidebar = screen.getByTestId('sidebar');
-        const toggle = screen.getByTestId('sidebar-toggle');
-        fireEvent.click(toggle);
-        expect(sidebar).toHaveClass('collapsed');
+    test('test toggle', () => {
+        componentRender(<Sidebar />);
+        const toggleBtn = screen.getByTestId('sidebar-toggle');
+        expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+        fireEvent.click(toggleBtn);
+        expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
     });
 });

@@ -15,14 +15,9 @@ export default {
 
 const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-    className: 'Text',
-};
-Primary.decorators = [ThemeDecorator(Theme.LIGHT)];
+export const Light = Template.bind({});
+Light.args = {};
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-    className: 'Text',
-};
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
