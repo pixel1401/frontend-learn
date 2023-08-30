@@ -6,5 +6,8 @@
         "public/locales"
     ],
     "i18n-ally.keystyle": "nested",
-    "i18next.i18nPaths": "c:/Users/Acer/Desktop/typescript/frontend-learn/public/locales"
+    "i18next.i18nPaths": "c:/Users/Acer/Desktop/typescript/frontend-learn/public/locales",
+    "cSpell.words": [
+        "testid"
+    ]
 }

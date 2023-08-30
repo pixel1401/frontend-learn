@@ -23,7 +23,9 @@
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
-    "storybook:build": "build-storybook -c ./config/storybook"
+    "storybook:build": "build-storybook -c ./config/storybook",
+
+    "allTest" : "npm run lint:scss:fix && npm run lint:ts:fix && npm run test:unit && npm run storybook:build && npm run test:ui:ci"
   },
   "author": "Erzhan",
   "license": "ISC",
