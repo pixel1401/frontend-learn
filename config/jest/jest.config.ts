@@ -41,5 +41,6 @@ export default {
         '\\.(css|scss)$': 'identity-obj-proxy',
         '^.+\\.svg$': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
     },
+    setupFilesAfterEnv: ['<rootDir>/config/jest/jest-setup.ts'],
 
 };
