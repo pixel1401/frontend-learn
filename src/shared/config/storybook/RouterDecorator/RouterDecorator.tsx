@@ -4,10 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 export const RouterDecorator = (StoryComponent: Story) => (
 
-    <StoreProvider>
-        <BrowserRouter>
-            <StoryComponent />
-        </BrowserRouter>
-    </StoreProvider>
+    <BrowserRouter>
+        <StoryComponent />
+    </BrowserRouter>
 
 );

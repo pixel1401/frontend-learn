@@ -1,4 +1,4 @@
-import { StateScheme } from 'app/providers/StoreProvider/config/StateScheme';
+import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'shared/ui/Button/Button';
