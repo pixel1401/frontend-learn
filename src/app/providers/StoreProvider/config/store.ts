@@ -5,22 +5,22 @@ import { LoginReducer } from 'features/AuthByUsername';
 import { StateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
-export const createStore = (initialState : StateSchema) => {
+export const createStore = (initialState : StateSchema, asyncReducers : ReducersMapObject<StateSchema>) => {
     const reducer : ReducersMapObject<StateSchema> = {
+        ...asyncReducers,
         counter: CounterReducer,
         user: UserReducer,
-        login: LoginReducer,
     };
 
     const createManager = createReducerManager(reducer);
 
-    const cofigureStore = configureStore<StateSchema>({
-        reducer,
+    const store = configureStore<StateSchema>({
+        reducer: createManager.reduce,
         devTools: __IS_DEV__,
         preloadedState: initialState,
     });
     // @ts-ignore
-    configureStore.reducerManager = createManager;
+    store.reducerManager = createManager;
 
-    return configureStore;
+    return store;
 };
