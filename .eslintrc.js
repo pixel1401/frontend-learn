@@ -58,6 +58,7 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
         'react/jsx-no-useless-fragment': 'off',
         'react/no-unused-prop-types': 'warn',
+        'react/prop-types': 'off',
     },
     globals: {
         __IS_DEV__: true,

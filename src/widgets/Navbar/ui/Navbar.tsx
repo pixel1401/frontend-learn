@@ -32,39 +32,35 @@ export const Navbar = ({ className }: NavbarProps) => {
         setIsAuthModal(false);
     }, [dispatch]);
 
+    if (userAuthData) {
+        return (
+            <div className={classNames(cls.Navbar, {}, [className])}>
+                <Button
+                    theme={ButtonTheme.CLEAR_INVERTED}
+                    className={cls.links}
+                    onClick={onLogOut}
+                >
+                    {t('Выйти')}
+                </Button>
+            </div>
+        );
+    }
+
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
-            { userAuthData === null && (
-                <div className={cls.links}>
-                    <Button
-                        theme={ButtonTheme.CLEAR_INVERTED}
-                        className={cls.links}
-                        onClick={onShowModal}
-                    >
-                        {t('Войти')}
-                    </Button>
-                    {isAuthModal && (
-                        <LoginModal
-                            isOpen={isAuthModal}
-                            onClose={onCloseModal}
-                        />
-                    )}
-                </div>
+            <Button
+                theme={ButtonTheme.CLEAR_INVERTED}
+                className={cls.links}
+                onClick={onShowModal}
+            >
+                {t('Войти')}
+            </Button>
+            {isAuthModal && (
+                <LoginModal
+                    isOpen={isAuthModal}
+                    onClose={onCloseModal}
+                />
             )}
-            {
-                userAuthData && (
-                    <div className={cls.links}>
-                        <Button
-                            theme={ButtonTheme.CLEAR_INVERTED}
-                            className={cls.links}
-                            onClick={onLogOut}
-                        >
-                            {t('Выйти')}
-                        </Button>
-                    </div>
-                )
-            }
-
         </div>
     );
 };
