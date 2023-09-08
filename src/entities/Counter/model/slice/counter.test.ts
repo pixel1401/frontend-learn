@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { CounterActions, CounterReducer } from './counter';
 import { CounterSchema } from '../type/counterSchema';
 

@@ -20,7 +20,7 @@ module.exports = {
     plugins: [
         'react',
         '@typescript-eslint',
-        'i18next',
+        // 'i18next',
         'react-hooks',
     ],
     rules: {
@@ -59,6 +59,7 @@ module.exports = {
         'react/jsx-no-useless-fragment': 'off',
         'react/no-unused-prop-types': 'warn',
         'react/prop-types': 'off',
+        'no-undef': 'off',
     },
     globals: {
         __IS_DEV__: true,

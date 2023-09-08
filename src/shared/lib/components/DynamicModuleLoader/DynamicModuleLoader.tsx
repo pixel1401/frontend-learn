@@ -22,14 +22,14 @@ export const DynamicModuleLoader : FC<DynamicModuleLoaderProps> = (props) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        Object.entries(reducers).forEach(([name, reducer] : ReducersListEntry) => {
+        Object.entries(reducers).forEach(([name, reducer]) => {
             dispatch({ type: `@INIT ${name}` });
-            store.reducerManager.add(name, reducer);
+            store.reducerManager.add(name as StateSchemaKey, reducer);
         });
 
         return () => {
-            Object.entries(reducers).forEach(([name, reducer] : ReducersListEntry) => {
-                store.reducerManager.remove(name);
+            Object.entries(reducers).forEach(([name, reducer]) => {
+                store.reducerManager.remove(name as StateSchemaKey);
                 dispatch({ type: `@REMOVE ${name}` });
             });
         };

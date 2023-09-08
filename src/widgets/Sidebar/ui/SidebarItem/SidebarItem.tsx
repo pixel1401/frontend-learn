@@ -17,6 +17,7 @@ export const SidebarItem = memo<SidebarItemProps>(({ collapsed }) => {
             {
                 sidebarItemList.map((link) => (
                     <AppLink
+                        key={link.path}
                         theme={AppLinkTheme.SECONDARY}
                         to={link.path}
                         className={cls.item}

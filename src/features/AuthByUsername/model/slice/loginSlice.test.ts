@@ -1,5 +1,4 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { DeepPartial } from 'redux';
 import { LoginActions, LoginReducer } from './loginSlice';
 import { LoginSchema } from '../type/loginSchema';
 

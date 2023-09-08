@@ -28,9 +28,6 @@ export const Error = Template.bind({});
 Error.args = {};
 Error.decorators = [StoreDecorator({
     loginForm: {
-        username: '',
-        password: '',
-        isLoading: true,
-        error: 'Вы вели неправильный данные',
+        error: 'Error',
     },
 })];
