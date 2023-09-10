@@ -10,7 +10,6 @@ export default {
     component: Button,
     argTypes: {
         backgroundColor: { control: 'color' },
-        disabled: { control: 'boolean' },
     },
 } as ComponentMeta<typeof Button>;
 
@@ -95,8 +94,9 @@ SquareSizeXl.args = {
     size: ButtonSize.XL,
 };
 
-export const DisabledBtn = Template.bind({});
-DisabledBtn.args = {
-    children: 'Войти',
+export const Disabled = Template.bind({});
+Disabled.args = {
+    children: '>',
+    theme: ButtonTheme.OUTLINE,
     disabled: true,
 };
