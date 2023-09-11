@@ -13,6 +13,14 @@ function App() {
     useEffect(() => {
         dispatch(UserActions.initAuthData());
     }, [dispatch]);
+
+    const { toggleTheme } = useTheme();
+
+    useEffect(() => {
+        toggleTheme(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     return (
         <div className={classNames('app', {}, [])}>
             <Suspense fallback="">

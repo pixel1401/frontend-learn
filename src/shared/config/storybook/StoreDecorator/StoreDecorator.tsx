@@ -1,8 +1,7 @@
+import { Suspense } from 'react';
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
-import { ReducersMapObject } from '@reduxjs/toolkit';
 import { LoginReducer } from 'features/AuthByUsername';
-import { ProfileReducer } from 'entities/Profile';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducers : ReducersList = {

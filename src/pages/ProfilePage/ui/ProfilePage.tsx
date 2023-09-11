@@ -2,18 +2,23 @@ import {
     ProfileActions,
     ProfileCard, fetchProfileData, getProfileForm, getProfileError, getProfileLoading, getProfileReadonly,
 } from 'entities/Profile';
-import { useCallback, useEffect } from 'react';
+import { FC, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Text } from 'shared/ui/Text/Text';
 import { Country, Currency } from 'shared/const/common';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
-const ProfilePage = () => {
+interface ProfilePageProps {
+    isTest: boolean
+}
+
+const ProfilePage : FC<ProfilePageProps> = ({ isTest = false }) => {
     const dispatch = useAppDispatch();
     useEffect(() => {
+        if (isTest) return;
         dispatch(fetchProfileData());
-    }, [dispatch]);
+    }, [dispatch, isTest]);
 
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileLoading);
