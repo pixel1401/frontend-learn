@@ -26,10 +26,10 @@
     }
   ],
   "profile": {
-    "first": "Тимур",
+    "first": "Hello",
     "lastname": "Ульби",
-    "age": 22,
-    "currency": "RUB",
+    "age": 12,
+    "currency": "EUR",
     "country": "Russia",
     "city": "Moscow",
     "username": "admin",

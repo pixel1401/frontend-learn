@@ -16,6 +16,7 @@ export default (env: BuildEnv) => {
         },
         isDev: modeDev === 'development',
         port: env.port ?? 3000,
+        project: 'frontend',
     });
 
     const config: Configuration = buildWebPackConfig(options(modeDev));

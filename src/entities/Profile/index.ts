@@ -3,6 +3,7 @@ import { getProfileError } from './model/selectors/getProfileError/getProfileErr
 import { getProfileForm } from './model/selectors/getProfileForm/getProfileForm';
 import { getProfileLoading } from './model/selectors/getProfileLoading/getProfileLoading';
 import { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileValidateErrors } from './model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
 import { updateProfileData } from './model/services/updateProfileData/updateProfileData';
 import { ProfileActions, ProfileReducer } from './model/slice/profile';
@@ -16,5 +17,5 @@ export {
 };
 
 export {
-    getProfileError, getProfileData, getProfileLoading, getProfileForm, getProfileReadonly,
+    getProfileError, getProfileData, getProfileLoading, getProfileForm, getProfileReadonly, getProfileValidateErrors,
 };

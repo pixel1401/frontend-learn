@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import avatar from 'shared/assets/test/storybook.jpg';
 import ProfilePage from './ProfilePage';
 
 export default {
@@ -28,6 +29,9 @@ Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
     profile: {
         isLoading: false,
-        readonly: false,
+        readonly: true,
+        form: {
+            avatar,
+        },
     },
 })];
