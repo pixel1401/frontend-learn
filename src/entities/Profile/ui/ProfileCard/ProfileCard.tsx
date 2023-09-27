@@ -4,16 +4,15 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Input } from 'shared/ui/Input/Input';
 import { Profile } from 'entities/Profile/model/type/profile';
 import { Loader } from 'shared/ui/Loader/Loader';
-import { Country, Currency } from 'shared/const/common';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { CurrencySelect } from 'entities/Currency';
-import { CountrySelect } from 'entities/Country';
+import {Currency, CurrencySelect} from 'entities/Currency';
+import {Country, CountrySelect} from 'entities/Country';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
     className?: string;
     data?: Profile,
-    error: string,
+    error?: string,
     isLoading? : boolean,
     readonly?: boolean;
     onChangeLastname?: (value?: string) => void;

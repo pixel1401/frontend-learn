@@ -7,10 +7,11 @@ import { FC, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { Country, Currency } from 'shared/const/common';
 import { ValidateProfileError } from 'entities/Profile/model/type/profile';
 import { useTranslation } from 'react-i18next';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
+import {Currency} from "entities/Currency";
+import {Country} from "entities/Country";
 
 interface ProfilePageProps {
     isTest: boolean

@@ -4,6 +4,7 @@ import Html from 'html-webpack-plugin';
 import MiniCss from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
+import ReactRefreshWebpackPlugin  from '@pmmmwh/react-refresh-webpack-plugin';
 
 export function buildPlugins({ paths, isDev, project } : BuildOptions) : WebpackPluginInstance[] {
     const plugins = [
@@ -24,8 +25,10 @@ export function buildPlugins({ paths, isDev, project } : BuildOptions) : Webpack
     ];
 
     if (isDev) {
-        plugins.push(new webpack.HotModuleReplacementPlugin());
+        // plugins.push(new webpack.HotModuleReplacementPlugin());
         plugins.push(new BundleAnalyzerPlugin());
+        plugins.push(new ReactRefreshWebpackPlugin());
+
     }
 
     return plugins;
