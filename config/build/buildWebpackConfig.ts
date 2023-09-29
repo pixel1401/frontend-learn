@@ -13,6 +13,7 @@ export function buildWebPackConfig(options : BuildOptions) : Configuration {
             filename: '[name].[contenthash].js',
             path: options.paths.build,
             clean: true,
+            publicPath: '/',
         },
         plugins: buildPlugins(options),
         module: {

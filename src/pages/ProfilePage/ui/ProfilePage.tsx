@@ -9,9 +9,9 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ValidateProfileError } from 'entities/Profile/model/type/profile';
 import { useTranslation } from 'react-i18next';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
-import {Currency} from "entities/Currency";
-import {Country} from "entities/Country";
 
 interface ProfilePageProps {
     isTest: boolean
