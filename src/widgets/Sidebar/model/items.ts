@@ -35,7 +35,7 @@ export const sidebarItemList : SidebarItemType[] = [
         isAuth: true,
     },
     {
-        path: `${RoutePath['article-details']}5`,
+        path: `${RoutePath['article-details']}1`,
         text: 'Посты1',
         icon: ArticleIcon,
         isAuth: true,

@@ -12,5 +12,4 @@ export {
     ArticleDetails,
     Article,
     getArticleDetails,
-    getArticleDetailsLoading, getArticleDetailsError, getArticleDetailsData, getArticleDetailsAllSelector,
 };
