@@ -1,11 +1,17 @@
-// import { ArticleActions, ArticleReducer } from './articleSlice';
-// import { ArticleDetailSchema } from '../types/ArticleDetailSchema';
+import { ArticleDetailReducer } from './articleSlice';
 
-// describe('ArticleSlice test', () => {
-//     const state : DeepPartial<ArticleDetailSchema> = {
+import { getArticleDetails } from '../services/getArticleDetails/getArticleDetails';
+import { ArticleDetailSchema } from '../types/articleDetailSchema';
 
-//     };
-//     test('example', () => {
-//         // expect(ArticleReducer(state as ArticleDetailSchema, ArticleActions.increment())).toEqual({ value: 11 });
-//     });
-// });
+describe('ArticleSlice test', () => {
+    const state : DeepPartial<ArticleDetailSchema> = {
+        isLoading: true,
+        error: 'err',
+    };
+    test('Loading', () => {
+        expect(ArticleDetailReducer(state as ArticleDetailSchema, getArticleDetails.pending)).toEqual({ isLoading: true, error: '' } as ArticleDetailSchema);
+    });
+    test('Error', () => {
+        expect(ArticleDetailReducer(state as ArticleDetailSchema, { type: getArticleDetails.rejected, payload: 'errors' })).toEqual({ isLoading: false, error: 'errors' } as ArticleDetailSchema);
+    });
+});
