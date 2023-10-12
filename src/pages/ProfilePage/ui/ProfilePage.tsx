@@ -11,20 +11,24 @@ import { ValidateProfileError } from 'entities/Profile/model/type/profile';
 import { useTranslation } from 'react-i18next';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import useInitialEffect from 'shared/lib/hooks/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
     isTest: boolean
 }
 
-const ProfilePage : FC<ProfilePageProps> = ({ isTest = false }) => {
+const ProfilePage : FC<ProfilePageProps> = () => {
     const { t } = useTranslation();
-
     const dispatch = useAppDispatch();
-    useEffect(() => {
-        if (__PROJECT__ !== 'frontend') return;
-        dispatch(fetchProfileData());
-    }, [dispatch, isTest]);
+
+    const params = useParams<{id: string}>();
+
+    useInitialEffect(() => {
+        if (!params.id) return;
+        dispatch(fetchProfileData(params.id));
+    });
 
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileLoading);
@@ -71,6 +75,10 @@ const ProfilePage : FC<ProfilePageProps> = ({ isTest = false }) => {
     const onChangeCountry = useCallback((country: Country) => {
         dispatch(ProfileActions.updateProfile({ country }));
     }, [dispatch]);
+
+    if (!params.id) {
+        return <Text title="Not Id" theme={TextTheme.ERROR} />;
+    }
 
     return (
         <>

@@ -58,14 +58,14 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                     type="text"
                     className={cls.input}
                     placeholder={t('Введите username')}
-                    onChange={(e) => onChangeUserName(e)}
+                    customChange={(e) => onChangeUserName(e)}
                     value={username}
                 />
                 <Input
                     type="text"
                     className={cls.input}
                     placeholder={t('Введите пароль')}
-                    onChange={(e) => onChangePassword(e)}
+                    customChange={(e) => onChangePassword(e)}
                     value={password}
                 />
                 <Button

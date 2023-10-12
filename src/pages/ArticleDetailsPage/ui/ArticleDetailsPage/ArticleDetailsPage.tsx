@@ -14,6 +14,7 @@ import {
 } from 'pages/ArticleDetailsPage/model/selectors/comment';
 import useInitialEffect from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { AddCommentForm } from 'features/AddCommentForm';
 import { ArticleDetailCommentsReducer, getArticleComments } from '../../model/slice/ArticleDetailCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -48,6 +49,7 @@ export const ArticleDetailsPage : FC<ArticleDetailsPageProps> = () => {
             <div>
                 <ArticleDetails id={params.id} />
                 <Text title="Коментарий" />
+                <AddCommentForm />
                 <CommentList isLoading={isLoading} comments={comments} />
             </div>
         </DynamicModuleLoader>

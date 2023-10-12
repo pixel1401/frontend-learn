@@ -1,17 +1,21 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, {
+    ChangeEventHandler,
     InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
+import { FieldValues, UseFormRegister } from 'react-hook-form';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'readOnly'>
 
 interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string | number;
-    onChange?: (value: string) => void;
+    customChange? : (value: string) => void;
     autofocus?: boolean;
     readonly?: boolean;
+    register?: UseFormRegister<FieldValues>,
+    registerName? : string
 }
 
 export const Input = memo((props: InputProps) => {
@@ -19,10 +23,13 @@ export const Input = memo((props: InputProps) => {
         className,
         value,
         onChange,
+        customChange,
         type = 'text',
         placeholder,
         autofocus,
         readonly,
+        register,
+        registerName,
         ...otherProps
     } = props;
     const ref = useRef<HTMLInputElement>(null);
@@ -39,7 +46,7 @@ export const Input = memo((props: InputProps) => {
     }, [autofocus]);
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        onChange?.(e.target.value);
+        customChange?.(e.target.value);
         setCaretPosition(e.target.value.length);
     };
 
@@ -67,18 +74,32 @@ export const Input = memo((props: InputProps) => {
                 </div>
             )}
             <div className={cls.caretWrapper}>
-                <input
-                    ref={ref}
-                    type={type}
-                    value={value}
-                    onChange={onChangeHandler}
-                    className={cls.input}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    onSelect={onSelect}
-                    readOnly={readonly}
-                    {...otherProps}
-                />
+                {(register && registerName)
+                    ? (
+                        <input
+                            className={cls.input}
+                            type={type}
+                            onFocus={onFocus}
+                            // onBlur={onBlur}
+                            onSelect={onSelect}
+                            readOnly={readonly}
+                            {...register(registerName)}
+                            onChange={onChangeHandler}
+                        />
+                    )
+                    : (
+                        <input
+                            ref={ref}
+                            type={type}
+                            onChange={onChangeHandler}
+                            className={cls.input}
+                            onFocus={onFocus}
+                            onBlur={onBlur}
+                            onSelect={onSelect}
+                            readOnly={readonly}
+                            {...otherProps}
+                        />
+                    )}
                 {isCaretVisible && (
                     <span
                         className={cls.caret}

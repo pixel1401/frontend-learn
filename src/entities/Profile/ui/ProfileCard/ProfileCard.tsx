@@ -80,42 +80,42 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     value={data?.first}
                     placeholder={t('Ваше имя')}
                     className={cls.input}
-                    onChange={onChangeFirstname}
+                    customChange={onChangeFirstname}
                     readonly={readonly}
                 />
                 <Input
                     value={data?.lastname}
                     placeholder={t('Ваша фамилия')}
                     className={cls.input}
-                    onChange={onChangeLastname}
+                    customChange={onChangeLastname}
                     readonly={readonly}
                 />
                 <Input
                     value={data?.age}
                     placeholder={t('Ваш возраст')}
                     className={cls.input}
-                    onChange={onChangeAge}
+                    customChange={onChangeAge}
                     readonly={readonly}
                 />
                 <Input
                     value={data?.city}
                     placeholder={t('Город')}
                     className={cls.input}
-                    onChange={onChangeCity}
+                    customChange={onChangeCity}
                     readonly={readonly}
                 />
                 <Input
                     value={data?.username}
                     placeholder={t('Введите имя пользователя')}
                     className={cls.input}
-                    onChange={onChangeUsername}
+                    customChange={onChangeUsername}
                     readonly={readonly}
                 />
                 <Input
                     value={data?.avatar}
                     placeholder={t('Введите ссылку на аватар')}
                     className={cls.input}
-                    onChange={onChangeAvatar}
+                    customChange={onChangeAvatar}
                     readonly={readonly}
                 />
                 <CurrencySelect
