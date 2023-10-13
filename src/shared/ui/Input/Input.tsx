@@ -14,7 +14,7 @@ interface InputProps extends HTMLInputProps {
     customChange? : (value: string) => void;
     autofocus?: boolean;
     readonly?: boolean;
-    register?: UseFormRegister<FieldValues>,
+    register?: UseFormRegister<any>,
     registerName? : string
 }
 
@@ -50,7 +50,7 @@ export const Input = memo((props: InputProps) => {
         setCaretPosition(e.target.value.length);
     };
 
-    const onBlur = () => {
+    const onBlurCustome = () => {
         setIsFocused(false);
     };
 
@@ -77,14 +77,18 @@ export const Input = memo((props: InputProps) => {
                 {(register && registerName)
                     ? (
                         <input
-                            className={cls.input}
+                            {...register(registerName, {
+                                onBlur(event) {
+                                    onBlurCustome();
+                                },
+                            })}
                             type={type}
+                            className={cls.input}
                             onFocus={onFocus}
-                            // onBlur={onBlur}
                             onSelect={onSelect}
                             readOnly={readonly}
-                            {...register(registerName)}
                             onChange={onChangeHandler}
+                            // onBlur={}
                         />
                     )
                     : (
@@ -94,7 +98,7 @@ export const Input = memo((props: InputProps) => {
                             onChange={onChangeHandler}
                             className={cls.input}
                             onFocus={onFocus}
-                            onBlur={onBlur}
+                            onBlur={onBlurCustome}
                             onSelect={onSelect}
                             readOnly={readonly}
                             {...otherProps}

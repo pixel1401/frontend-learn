@@ -7,6 +7,7 @@ import { ArticleDetailSchema } from 'entities/Article/model/types/articleDetailS
 import { CounterSchema } from 'entities/Counter';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
+import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { LoginSchema } from 'features/AuthByUsername/model/type/loginSchema';
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import { NavigateFunction } from 'react-router-dom';
@@ -19,7 +20,9 @@ export interface StateSchema {
     // ASYNC REDUCERS
     loginForm?: LoginSchema,
     articleDetail? : ArticleDetailSchema,
-    articleDetailComments? : ArticleDetailsCommentSchema
+    articleDetailComments? : ArticleDetailsCommentSchema,
+    addCommentForm: AddCommentFormSchema,
+
 }
 
 export type StateSchemaKey = keyof StateSchema;
