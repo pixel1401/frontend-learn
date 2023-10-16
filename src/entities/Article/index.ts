@@ -12,4 +12,5 @@ export {
     ArticleDetails,
     Article,
     getArticleDetails,
+    getArticleDetailsData,
 };

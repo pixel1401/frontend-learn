@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
     ArticleDetails,
@@ -18,6 +18,7 @@ import { AddCommentForm } from 'features/AddCommentForm';
 import { ArticleDetailCommentsReducer, getArticleComments } from '../../model/slice/ArticleDetailCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { sendComment } from '../../model/services/sendComment/sendComment';
 
 interface ArticleDetailsPageProps {}
 
@@ -40,6 +41,10 @@ export const ArticleDetailsPage : FC<ArticleDetailsPageProps> = () => {
         }
     });
 
+    const fetchSendComment = useCallback((text :string) => {
+        dispatch(sendComment(text));
+    }, [dispatch]);
+
     if (!params.id) {
         return <div>NOT ID</div>;
     }
@@ -49,7 +54,7 @@ export const ArticleDetailsPage : FC<ArticleDetailsPageProps> = () => {
             <div>
                 <ArticleDetails id={params.id} />
                 <Text title="Коментарий" />
-                <AddCommentForm />
+                <AddCommentForm onSendComment={fetchSendComment} />
                 <CommentList isLoading={isLoading} comments={comments} />
             </div>
         </DynamicModuleLoader>

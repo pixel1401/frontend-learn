@@ -9,7 +9,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import {
     AddCommentFormActions,
     AddCommentFormReducer,
-} from 'features/AddCommentForm/model/addCommentForm/addCommentFormSlice';
+} from 'features/AddCommentForm/model/slice/addCommentFormSlice';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import cls from './AddCommentForm.module.scss';
 
@@ -22,23 +22,26 @@ const schema = z.object({
 });
 type FormType = z.infer<typeof schema>;
 
-interface AddCommentFormProps {}
-export const AddCommentForm : FC<AddCommentFormProps> = () => {
+interface AddCommentFormProps {
+    onSendComment: (text :string) => void
+}
+export const AddCommentForm : FC<AddCommentFormProps> = ({ onSendComment }) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const {
         register,
-        control,
         handleSubmit,
         formState: { errors },
+        reset,
     } = useForm<FormType>({
         resolver: zodResolver(schema),
         mode: 'onTouched',
     });
 
-    const fetchComment = (e : FormType) => {
-        // dispatch(AddCommentFormActions.setText(e.text));
-        console.log(e);
+    const fetchComment = async (e : FormType) => {
+        dispatch(AddCommentFormActions.setText(e.text));
+        onSendComment(e.text);
+        reset();
     };
 
     return (
@@ -46,7 +49,7 @@ export const AddCommentForm : FC<AddCommentFormProps> = () => {
             <div>
                 <form onSubmit={handleSubmit(fetchComment)}>
                     <Input register={register} registerName="text" placeholder="Enter your text" />
-                    <Button type="submit">Submit122  </Button>
+                    <Button type="submit">Submit</Button>
                 </form>
             </div>
         </DynamicModuleLoader>
