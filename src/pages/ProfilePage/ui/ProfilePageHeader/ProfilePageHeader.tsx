@@ -5,13 +5,18 @@ import { useSelector } from 'react-redux';
 import { getProfileReadonly } from 'entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useCallback } from 'react';
-import { ProfileActions, updateProfileData } from 'entities/Profile';
+import { ProfileActions, getProfileData, updateProfileData } from 'entities/Profile';
+import { getUserAuthData } from 'entities/User';
 import cls from './ProfilePageHeader.module.scss';
 
 export const ProfilePageHeader = () => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const readonly = useSelector(getProfileReadonly);
+
+    const authData = useSelector(getUserAuthData);
+    const profileData = useSelector(getProfileData);
+    const canEdit = authData?.id === profileData?.id;
 
     const onEdit = useCallback(() => {
         dispatch(ProfileActions.setReadonly(false));
@@ -24,6 +29,10 @@ export const ProfilePageHeader = () => {
     const onSave = useCallback(() => {
         dispatch(updateProfileData());
     }, [dispatch]);
+
+    if (canEdit === false) {
+        return null;
+    }
 
     return (
         <>

@@ -6,12 +6,12 @@ import React, {
 import { FieldValues, UseFormRegister } from 'react-hook-form';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'readOnly'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'readOnly' | 'onChange'>
 
 interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string | number;
-    customChange? : (value: string) => void;
+    onChange? : (value: string) => void;
     autofocus?: boolean;
     readonly?: boolean;
     register?: UseFormRegister<any>,
@@ -23,7 +23,7 @@ export const Input = memo((props: InputProps) => {
         className,
         value,
         onChange,
-        customChange,
+        // customChange,
         type = 'text',
         placeholder,
         autofocus,
@@ -46,7 +46,7 @@ export const Input = memo((props: InputProps) => {
     }, [autofocus]);
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        customChange?.(e.target.value);
+        onChange?.(e.target.value);
         setCaretPosition(e.target.value.length);
     };
 
@@ -101,6 +101,7 @@ export const Input = memo((props: InputProps) => {
                             onBlur={onBlurCustome}
                             onSelect={onSelect}
                             readOnly={readonly}
+                            value={value}
                             {...otherProps}
                         />
                     )}

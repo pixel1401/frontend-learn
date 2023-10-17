@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
-import { Button } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -11,6 +11,7 @@ import {
     AddCommentFormReducer,
 } from 'features/AddCommentForm/model/slice/addCommentFormSlice';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './AddCommentForm.module.scss';
 
 const reducers : ReducersList = {
@@ -47,9 +48,19 @@ export const AddCommentForm : FC<AddCommentFormProps> = ({ onSendComment }) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div>
-                <form onSubmit={handleSubmit(fetchComment)}>
-                    <Input register={register} registerName="text" placeholder="Enter your text" />
-                    <Button type="submit">Submit</Button>
+                <form onSubmit={handleSubmit(fetchComment)} className={classNames(cls.AddCommentForm, {}, [])}>
+                    <Input
+                        register={register}
+                        registerName="text"
+                        placeholder="Enter your text"
+                        className={cls.input}
+                    />
+                    <Button
+                        theme={ButtonTheme.OUTLINE}
+                        type="submit"
+                    >
+                        {t('Отправить')}
+                    </Button>
                 </form>
             </div>
         </DynamicModuleLoader>

@@ -162,6 +162,18 @@
       "text": "Hello wnew suu",
       "userId": "1",
       "id": "6NlDAF2"
+    },
+    {
+      "articleId": "1",
+      "text": "Hello every one",
+      "userId": "1",
+      "id": "osHp_qQ"
+    },
+    {
+      "articleId": "1",
+      "text": "wdadawda2121",
+      "userId": "1",
+      "id": "NyV4FEp"
     }
   ],
   "users": [
@@ -183,7 +195,7 @@
   "profile": [
     {
       "id": "1",
-      "first": "jgh",
+      "first": "Erzhan",
       "lastname": "asf",
       "age": 465,
       "currency": "RUB",
