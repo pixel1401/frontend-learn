@@ -5,12 +5,15 @@ import {
     getArticleDetailsLoading,
 } from './model/selectors/articleDetails';
 import { getArticleDetails } from './model/services/getArticleDetails/getArticleDetails';
-import { Article } from './model/types/article';
+import { Article, ArticleView } from './model/types/article';
 import { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
+import { ArticleList } from './ui/ArticleList/ArticleList';
 
 export {
     ArticleDetails,
     Article,
     getArticleDetails,
     getArticleDetailsData,
+    ArticleList,
+    ArticleView,
 };

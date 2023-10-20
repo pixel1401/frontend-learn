@@ -50,6 +50,11 @@ const article: Article = {
             ],
         },
     ],
+    user: {
+        id: '1',
+        username: 'erzhan',
+        avatar: '',
+    },
 };
 
 export const Normal = Template.bind({});
