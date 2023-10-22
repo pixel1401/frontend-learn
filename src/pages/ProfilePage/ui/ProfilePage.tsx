@@ -13,6 +13,7 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import useInitialEffect from 'shared/lib/hooks/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
@@ -76,12 +77,12 @@ const ProfilePage : FC<ProfilePageProps> = () => {
         dispatch(ProfileActions.updateProfile({ country }));
     }, [dispatch]);
 
-    if (!params.id) {
-        return <Text title="Not Id" theme={TextTheme.ERROR} />;
-    }
+    // if (!params.id) {
+    //     return <Text title="Not Id" theme={TextTheme.ERROR} />;
+    // }
 
     return (
-        <>
+        <Page>
             <Text title="Profile page" />
             <ProfilePageHeader />
             {(validateErrors && validateErrors?.length > 0) && validateErrors.length && validateErrors.map((err) => (
@@ -105,7 +106,7 @@ const ProfilePage : FC<ProfilePageProps> = () => {
                 onChangeCurrency={onChangeCurrency}
                 onChangeCountry={onChangeCountry}
             />
-        </>
+        </Page>
     );
 };
 

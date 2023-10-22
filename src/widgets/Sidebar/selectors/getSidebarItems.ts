@@ -34,12 +34,7 @@ export const getSidebarItems = createSelector(
                 icon: ArticleIcon,
                 isAuth: true,
             },
-            {
-                path: `${RoutePath['article-details']}1`,
-                text: 'Посты1',
-                icon: ArticleIcon,
-                isAuth: true,
-            },
+
         ];
 
         return sidebarItemList;

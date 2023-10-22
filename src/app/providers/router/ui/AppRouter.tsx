@@ -10,9 +10,10 @@ const AppRouter = () => {
     const renderWithWrapper = useCallback((route: AppRoutesProps) => {
         const element : ReactNode = (
             <Suspense fallback={<PageLoader />}>
-                <div className="page-wrapper">
+                {/* <div className="page-wrapper">
                     {route.element}
-                </div>
+                </div> */}
+                {route.element}
             </Suspense>
         );
 

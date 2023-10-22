@@ -24,7 +24,7 @@ export const SidebarItem = memo<SidebarItemProps>(({ collapsed }) => {
     }), [isAuth, sidebarItemList]);
 
     return (
-        <div className={classNames('', { [cls.collapsed]: collapsed }, [])}>
+        <nav className={classNames('', { [cls.collapsed]: collapsed }, [])}>
             {
                 sidebarItems.map((link) => (
                     <AppLink
@@ -40,6 +40,6 @@ export const SidebarItem = memo<SidebarItemProps>(({ collapsed }) => {
                     </AppLink>
                 ))
             }
-        </div>
+        </nav>
     );
 });

@@ -8,6 +8,7 @@ import { getArticleDetails } from './model/services/getArticleDetails/getArticle
 import { Article, ArticleView } from './model/types/article';
 import { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 import { ArticleList } from './ui/ArticleList/ArticleList';
+import { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 
 export {
     ArticleDetails,
@@ -17,3 +18,5 @@ export {
     ArticleList,
     ArticleView,
 };
+
+export { ArticleViewSelector };

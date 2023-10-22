@@ -1,11 +1,12 @@
-// import { ArticleDetailCommentsActions, ArticleDetailCommentsReducer } from './ArticleDetailCommentsSlice';
-// import { ArticleDetailCommentsSchema } from '../types/ArticleDetailCommentsSchema';
+import { ArticleDetailCommentsActions, ArticleDetailCommentsReducer } from './ArticleDetailCommentsSlice';
+import { ArticleDetailsCommentSchema } from '../types/articleDetailsCommentSchema';
+import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
-// describe('ArticleDetailCommentsSlice test', () => {
-//     const state : DeepPartial<ArticleDetailCommentsSchema> = {
+describe('ArticleDetailCommentsSlice test', () => {
+    const state : DeepPartial<ArticleDetailsCommentSchema> = {
 
-//     };
-//     test('example', () => {
-//         // expect(ArticleDetailCommentsReducer(state as ArticleDetailCommentsSchema, ArticleDetailCommentsActions.increment())).toEqual({ value: 11 });
-//     });
-// });
+    };
+    test('pending', () => {
+        expect(ArticleDetailCommentsReducer(state as ArticleDetailsCommentSchema, fetchCommentsByArticleId.pending)).toEqual({ isLoading: true, error: '' } as ArticleDetailsCommentSchema);
+    });
+});
