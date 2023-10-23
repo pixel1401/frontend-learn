@@ -7,6 +7,7 @@ interface SkeletonProps {
     height?: string | number;
     width?: string | number;
     border?: string;
+    isAnimation? : boolean
 }
 
 export const Skeleton = memo((props: SkeletonProps) => {
@@ -15,6 +16,7 @@ export const Skeleton = memo((props: SkeletonProps) => {
         height,
         width,
         border,
+        isAnimation = true,
     } = props;
 
     const styles: CSSProperties = {
@@ -25,7 +27,7 @@ export const Skeleton = memo((props: SkeletonProps) => {
 
     return (
         <div
-            className={classNames(cls.Skeleton, {}, [className])}
+            className={classNames(cls.Skeleton, { [`${cls.Animation}`]: isAnimation }, [className])}
             style={styles}
         />
     );

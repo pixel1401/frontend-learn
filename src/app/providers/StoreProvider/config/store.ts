@@ -5,27 +5,26 @@ import { CounterReducer } from 'entities/Counter';
 import { UserReducer } from 'entities/User';
 import { ProfileReducer } from 'entities/Profile';
 import { $api } from 'shared/api/api';
-import { NavigateFunction } from 'react-router-dom';
+import { ScrollSaveReducer } from 'widgets/ScrollSave';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
 export const createStore = (
     initialState: StateSchema,
     asyncReducers: ReducersMapObject<StateSchema>,
-    navigate?: NavigateFunction,
 ) => {
     const reducer: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         counter: CounterReducer,
         user: UserReducer,
         profile: ProfileReducer,
+        scrollSave: ScrollSaveReducer,
     };
 
     const createManager = createReducerManager(reducer);
 
     const extraArg: ThunkExtraArg = {
         api: $api,
-        navigate,
     };
 
     const store = configureStore({

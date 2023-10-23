@@ -40,7 +40,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "./config/jest/jest-setup.ts"
-  ],
+, "src/pages/ProfilePage/ui/ProfilePage.text"  ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"

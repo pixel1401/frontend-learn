@@ -19,6 +19,7 @@ export const Normal = Template.bind({});
 Normal.args = {
     width: '100%',
     height: 200,
+    isAnimation: false,
 };
 
 export const Circle = Template.bind({});
@@ -26,12 +27,14 @@ Circle.args = {
     border: '50%',
     width: 100,
     height: 100,
+    isAnimation: false,
 };
 
 export const NormalDark = Template.bind({});
 NormalDark.args = {
     width: '100%',
     height: 200,
+    isAnimation: false,
 };
 NormalDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const CircleDark = Template.bind({});
@@ -39,5 +42,6 @@ CircleDark.args = {
     border: '50%',
     width: 100,
     height: 100,
+    isAnimation: false,
 };
 CircleDark.decorators = [ThemeDecorator(Theme.DARK)];

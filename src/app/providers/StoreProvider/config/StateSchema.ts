@@ -12,11 +12,13 @@ import { LoginSchema } from 'features/AuthByUsername/model/type/loginSchema';
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { NavigateFunction } from 'react-router-dom';
+import { ScrollSaveSchema } from 'widgets/ScrollSave';
 
 export interface StateSchema {
     counter: CounterSchema,
     user: UserSchema,
-    profile: ProfileSchema
+    profile: ProfileSchema,
+    scrollSave: ScrollSaveSchema
 
     // ASYNC REDUCERS
     loginForm?: LoginSchema,
@@ -42,7 +44,7 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArg {
     api: AxiosInstance,
-    navigate?: NavigateFunction
+    // navigate?: NavigateFunction
 }
 
 export interface ThunkConfig<T> {
