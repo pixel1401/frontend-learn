@@ -23,7 +23,7 @@
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook",
     "server": "node ./json-server/index.js",
-    "allTest": "npm run lint:scss:fix && npm run lint:ts:fix && npm run test:unit && npm run storybook:build && npm run test:ui:ci",
+    "allTest": "npm run lint:scss && npm run lint:ts && npm run test:unit && npm run storybook:build && npm run test:ui:ci",
     "prepare": "husky install"
   },
   "author": "Erzhan",

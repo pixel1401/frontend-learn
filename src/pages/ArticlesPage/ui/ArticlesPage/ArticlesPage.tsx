@@ -7,6 +7,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import useInitialEffect from 'shared/lib/hooks/useInitialEffect';
 import { useSelector } from 'react-redux';
 import { Page } from 'widgets/Page/Page';
+import { useSearchParams } from 'react-router-dom';
 import { initedArticlesPage } from '../../model/services/initedArticlesPage/initedArticlesPage';
 import { ArticlePageActions, ArticlePageReducer, getArticles } from '../../model/slice/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
@@ -15,6 +16,7 @@ import {
     getIsLoadingArticlesPage, getPageArticlesPage, getViewArticlesPage,
 } from '../../model/selectors/articlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 
 const reducerList : ReducersList = {
     articlesPage: ArticlePageReducer,
@@ -33,24 +35,20 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const isLoading = useSelector(getIsLoadingArticlesPage);
     const error = useSelector(getErrorArticlesPage);
     const view = useSelector(getViewArticlesPage);
-    const page = useSelector(getPageArticlesPage);
+    const [searchParams] = useSearchParams();
 
     useInitialEffect(() => {
-        dispatch(initedArticlesPage());
+        dispatch(initedArticlesPage(searchParams));
     });
 
     const nextArticlesPage = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
-    const onViewClick = (view : ArticleView) => {
-        dispatch(ArticlePageActions.setView(view));
-    };
-
     return (
         <DynamicModuleLoader reducers={reducerList} removeAfterUnmount={false}>
             <Page onScrollEnd={nextArticlesPage} className={classNames(cls.ArticlesPage, {}, [className])}>
-                <ArticleViewSelector view={view} onViewClick={onViewClick} />
+                <ArticlePageFilters />
                 <ArticleList
                     isLoading={isLoading}
                     view={view}
