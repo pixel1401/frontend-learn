@@ -1,6 +1,9 @@
-import { ArticleDetailsCommentSchema } from './model/types/articleDetailsCommentSchema';
+import { ArticleDetailsPageReducers } from './model/slice';
+import { ArticleDetailsPageSchema } from './model/types';
 import { ArticleDetailsPage } from './ui/ArticleDetailsPage/ArticleDetailsPage';
 
 export { ArticleDetailsPage };
 
-export { ArticleDetailsCommentSchema };
+export { ArticleDetailsPageSchema };
+
+export { ArticleDetailsPageReducers };

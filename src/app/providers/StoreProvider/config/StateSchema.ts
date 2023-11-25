@@ -9,7 +9,7 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { LoginSchema } from 'features/AuthByUsername/model/type/loginSchema';
-import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { NavigateFunction } from 'react-router-dom';
 import { ScrollSaveSchema } from 'widgets/ScrollSave';
@@ -23,9 +23,9 @@ export interface StateSchema {
     // ASYNC REDUCERS
     loginForm?: LoginSchema,
     articleDetail? : ArticleDetailSchema,
-    articleDetailComments? : ArticleDetailsCommentSchema,
     addCommentForm?: AddCommentFormSchema,
-    articlesPage?: ArticlesPageSchema
+    articlesPage?: ArticlesPageSchema,
+    ArticleDetailsPage?: ArticleDetailsPageSchema
 
 }
 

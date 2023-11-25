@@ -44,6 +44,10 @@
     transition: 0.2s;
     cursor: pointer;
 
+    .card {
+        width: fit-content;
+    }
+
     .date {
         position: absolute;
         right: 0;

@@ -15,6 +15,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
 import { ArticleType } from 'entities/Article/model/types/article';
+import { classNames } from 'shared/lib/classNames/classNames';
 import {
     getArticlesPageType,
     getInitedArticlesPage,
@@ -26,9 +27,11 @@ import {
 import cls from './ArticlePageFilters.module.scss';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 
-interface ArticlePageFiltersProps {}
+interface ArticlePageFiltersProps {
+    className?: string
+}
 
-export const ArticlePageFilters: FC<ArticlePageFiltersProps> = () => {
+export const ArticlePageFilters: FC<ArticlePageFiltersProps> = ({ className }) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
@@ -87,15 +90,20 @@ export const ArticlePageFilters: FC<ArticlePageFiltersProps> = () => {
     }, [debounceSearch, fetchList]);
 
     return (
-        <div>
-            <ArticleViewSelector view={view} onViewClick={onViewClick} />
-            <ArticleSortSelector
-                order={order}
-                sort={sort}
-                onChangeOrder={onChangeOrder}
-                onChangeSort={onChangeSort}
-            />
-            <Card>
+        <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
+            <div className={cls.sortWrapper}>
+                <ArticleSortSelector
+                    order={order}
+                    sort={sort}
+                    onChangeOrder={onChangeOrder}
+                    onChangeSort={onChangeSort}
+                />
+                <ArticleViewSelector
+                    view={view}
+                    onViewClick={onViewClick}
+                />
+            </div>
+            <Card className={cls.search}>
                 <Input
                     onChange={handleSearch}
                     value={search}

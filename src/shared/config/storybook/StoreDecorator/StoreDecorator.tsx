@@ -4,18 +4,18 @@ import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { LoginReducer } from 'features/AuthByUsername';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { AddCommentFormReducer } from 'features/AddCommentForm/model/slice/addCommentFormSlice';
-import { ArticleDetailCommentsReducer } from 'pages/ArticleDetailsPage/model/slice/ArticleDetailCommentsSlice';
 import { ArticleDetailReducer } from 'entities/Article/model/slice/articleSlice';
 import { ProfileReducer } from 'entities/Profile';
 import { ArticlePageReducer } from 'pages/ArticlesPage/model/slice/articlesPageSlice';
+import { ArticleDetailsPageReducers } from 'pages/ArticleDetailsPage';
 
 const defaultAsyncReducers : ReducersList = {
     loginForm: LoginReducer,
     addCommentForm: AddCommentFormReducer,
-    articleDetailComments: ArticleDetailCommentsReducer,
     articleDetail: ArticleDetailReducer,
     profile: ProfileReducer,
     articlesPage: ArticlePageReducer,
+    ArticleDetailsPage: ArticleDetailsPageReducers,
 };
 
 export const StoreDecorator = (
