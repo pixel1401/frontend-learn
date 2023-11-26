@@ -31,6 +31,7 @@ import {
     getArticleRecommendation,
 } from '../../model/slice/ArticleDetailRecommendationSlice';
 import { ArticleDetailsPageReducers } from '../../model/slice';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {}
 
@@ -51,7 +52,7 @@ export const ArticleDetailsPage : FC<ArticleDetailsPageProps> = () => {
 
     const navigate = useNavigate();
     const onBackToList = useCallback(() => {
-        navigate(RoutePath.article);
+        navigate(RoutePath.articles);
     }, [navigate]);
 
     useInitialEffect(() => {
@@ -72,9 +73,7 @@ export const ArticleDetailsPage : FC<ArticleDetailsPageProps> = () => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page className={classNames(cls.ArticleDetailsPage, {}, [])}>
-                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                    {t('Назад к списку')}
-                </Button>
+                <ArticleDetailsPageHeader />
                 <ArticleDetails id={params.id} />
                 <Text className={cls.commentTitle} title={t('Рекемендуемые')} />
                 <ArticleList

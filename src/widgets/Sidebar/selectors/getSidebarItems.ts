@@ -29,7 +29,7 @@ export const getSidebarItems = createSelector(
                 isAuth: true,
             },
             {
-                path: RoutePath.article,
+                path: RoutePath.articles,
                 text: 'Посты',
                 icon: ArticleIcon,
                 isAuth: true,
