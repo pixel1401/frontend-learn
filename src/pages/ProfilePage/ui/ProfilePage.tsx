@@ -17,7 +17,6 @@ import { Page } from 'widgets/Page/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
-    isTest: boolean
 }
 
 const ProfilePage : FC<ProfilePageProps> = () => {
