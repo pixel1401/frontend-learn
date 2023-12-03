@@ -22,6 +22,7 @@ module.exports = {
         '@typescript-eslint',
         // 'i18next',
         'react-hooks',
+        'erzhan-plugin-eslint',
     ],
     rules: {
         'linebreak-style': 'off',
@@ -61,6 +62,7 @@ module.exports = {
         'react/prop-types': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
+        'erzhan-plugin-eslint/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,

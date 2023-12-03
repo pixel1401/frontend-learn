@@ -2,11 +2,11 @@ import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Input } from 'shared/ui/Input/Input';
-import { Profile } from 'entities/Profile/model/type/profile';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
+import { Profile } from '../../model/type/profile';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -118,7 +118,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     onChange={onChangeAvatar}
                     readonly={readonly}
                 />
-                <CurrencySelect
+                {/* <CurrencySelect
                     className={cls.input}
                     value={data?.currency}
                     onChange={onChangeCurrency}
@@ -129,7 +129,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     value={data?.country}
                     onChange={onChangeCountry}
                     readonly={readonly}
-                />
+                /> */}
             </div>
         </div>
     );
