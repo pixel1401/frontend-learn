@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
+// eslint-disable-next-line erzhan-plugin-eslint/path-checker
 import { Text } from 'shared/ui/Text/Text';
 import { Card } from './Card';
 

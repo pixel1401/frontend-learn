@@ -57,7 +57,6 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                 />
             </Page>
         </DynamicModuleLoader>
-
     );
 };
 

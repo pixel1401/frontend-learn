@@ -7,7 +7,6 @@ import {
     ArticleViewSelector,
 } from 'entities/Article';
 import { useSelector } from 'react-redux';
-import { ArticlePageActions } from 'pages/ArticlesPage/model/slice/articlesPageSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { SortOrder } from 'shared/types';
 import { Card } from 'shared/ui/Card/Card';
@@ -16,6 +15,7 @@ import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
 import { ArticleType } from 'entities/Article/model/types/article';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { ArticlePageActions } from '../../model/slice/articlesPageSlice';
 import {
     getArticlesPageType,
     getInitedArticlesPage,

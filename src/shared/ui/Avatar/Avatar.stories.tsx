@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+// eslint-disable-next-line erzhan-plugin-eslint/path-checker
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import AvatarImg from './storybook.jpg';
 

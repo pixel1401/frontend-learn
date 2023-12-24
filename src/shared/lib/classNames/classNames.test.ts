@@ -1,3 +1,4 @@
+// eslint-disable-next-line erzhan-plugin-eslint/path-checker
 import { classNames } from 'shared/lib/classNames/classNames';
 
 describe('classNames', () => {

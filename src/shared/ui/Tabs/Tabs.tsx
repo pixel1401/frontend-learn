@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, ReactNode, useCallback } from 'react';
+// eslint-disable-next-line erzhan-plugin-eslint/path-checker
 import { Card, CardTheme } from 'shared/ui/Card/Card';
 import cls from './Tabs.module.scss';
 

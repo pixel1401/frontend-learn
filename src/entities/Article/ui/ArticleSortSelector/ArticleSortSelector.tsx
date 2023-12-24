@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
 import { SortOrder } from 'shared/types';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { ArticleSortField } from '../../model/types/article';
 import cls from './ArticleSortSelector.module.scss';
 
@@ -48,17 +49,17 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
 
     return (
         <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
-            <Select<ArticleSortField>
-                options={sortFieldOptions}
+            <ListBox
+                items={sortFieldOptions as any}
                 label={t('Сортировать ПО')}
                 value={sort}
-                onChange={onChangeSort}
+                onChange={onChangeSort as any}
             />
-            <Select<SortOrder>
-                options={orderOptions}
+            <ListBox
+                items={orderOptions}
                 label={t('по')}
                 value={order}
-                onChange={onChangeOrder}
+                onChange={onChangeOrder as any}
                 className={cls.order}
             />
         </div>
