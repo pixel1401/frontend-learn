@@ -9,5 +9,6 @@
     "i18next.i18nPaths": "c:/Users/Acer/Desktop/typescript/frontend-learn/public/locales",
     "cSpell.words": [
         "testid"
-    ]
+    ],
+    "typescript.preferences.importModuleSpecifier": "non-relative"
 }

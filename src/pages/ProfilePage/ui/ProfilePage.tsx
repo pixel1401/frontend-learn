@@ -14,6 +14,7 @@ import { Country } from 'entities/Country';
 import useInitialEffect from 'shared/lib/hooks/useInitialEffect';
 import { useParams } from 'react-router-dom';
 import { Page } from 'widgets/Page/Page';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
