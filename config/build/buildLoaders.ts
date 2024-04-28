@@ -1,5 +1,6 @@
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import { BuildOptions } from './types/config';
 import { buildBabelLoader } from './loaders/buildBabelLoader';
 
@@ -13,7 +14,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
     const cssLoader = {
         test: /\.s[ac]ss$/i,
-        use: [
+        use: ExtractTextPlugin.extract([
             isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             {
                 loader: 'css-loader',
@@ -26,8 +27,9 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                     },
                 },
             },
+            'resolve-url-loader',
             'sass-loader',
-        ],
+        ]),
     };
 
     // Если не используем тайпскрипт - нужен babel-loader
@@ -38,7 +40,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     };
 
     const fileLoader = {
-        test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+        test: /\.(png|jpe?g|gif)$/i,
         use: [
             {
                 loader: 'file-loader',
@@ -46,7 +48,19 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         ],
     };
 
+    const fontLoader = {
+        test: /\.(ttf|woff2|woff)$/i,
+        use: {
+            loader: 'file-loader',
+            options: {
+                name: '[name].[ext]',
+                outputPath: 'fonts/',
+            },
+        },
+    };
+
     return [
+        fontLoader,
         fileLoader,
         svgLoader,
         babelLoader,

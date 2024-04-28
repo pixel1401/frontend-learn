@@ -5,22 +5,24 @@ import {
 import { AxiosInstance } from 'axios';
 import { ArticleDetailSchema } from 'entities/Article/model/types/articleDetailSchema';
 import { CounterSchema } from 'entities/Counter';
-import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { LoginSchema } from 'features/AuthByUsername/model/type/loginSchema';
+import { ProfileSchema } from 'features/EditableProfileCard';
 import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { NavigateFunction } from 'react-router-dom';
+import { rtkApi } from 'shared/api/rtlApi';
 import { ScrollSaveSchema } from 'widgets/ScrollSave';
 
 export interface StateSchema {
     counter: CounterSchema,
     user: UserSchema,
-    profile: ProfileSchema,
     scrollSave: ScrollSaveSchema
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
     // ASYNC REDUCERS
+    profile?: ProfileSchema,
     loginForm?: LoginSchema,
     articleDetail? : ArticleDetailSchema,
     addCommentForm?: AddCommentFormSchema,
