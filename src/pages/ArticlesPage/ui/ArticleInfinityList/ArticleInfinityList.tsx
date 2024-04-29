@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleList } from 'entities/Article';
 import { useSelector } from 'react-redux';
-import { getArticles } from 'pages/ArticlesPage/model/slice/articlesPageSlice';
+import { getArticles } from '../../model/slice/articlesPageSlice';
 import { getErrorArticlesPage, getIsLoadingArticlesPage, getViewArticlesPage } from '../../model/selectors/articlesPage';
 import cls from './ArticleInfinityList.module.scss';
 

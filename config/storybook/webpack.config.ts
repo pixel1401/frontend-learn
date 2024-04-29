@@ -29,6 +29,12 @@ export default ({ config }: {config: webpack.Configuration}) => {
         return rule;
     });
 
+    config.module!.rules.push({
+        test: /\.(ttf|woff2|woff)$/i,
+        type: 'asset/resource',
+        dependency: { not: ['url'] },
+    });
+
     config!.module!.rules.push({
         test: /\.svg$/,
         use: ['@svgr/webpack'],
