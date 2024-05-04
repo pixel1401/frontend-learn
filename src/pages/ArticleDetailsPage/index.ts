@@ -1,4 +1,5 @@
-import { ArticleDetailsPageReducers } from './model/slice';
+// eslint-disable-next-line erzhan-plugin-eslint/path-checker
+import { ArticleDetailsPageReducers } from 'pages/ArticleDetailsPage/model/slice';
 import { ArticleDetailsPageSchema } from './model/types';
 import { ArticleDetailsPage } from './ui/ArticleDetailsPage/ArticleDetailsPage';
 

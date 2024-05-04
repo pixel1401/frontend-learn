@@ -1,13 +1,13 @@
 import { Suspense } from 'react';
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
-import { LoginReducer } from 'features/AuthByUsername';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { AddCommentFormReducer } from 'features/AddCommentForm/model/slice/addCommentFormSlice';
 import { ArticleDetailReducer } from 'entities/Article/model/slice/articleSlice';
+import { AddCommentFormReducer } from 'features/AddCommentForm/model/slice/addCommentFormSlice';
+import { LoginReducer } from 'features/AuthByUsername';
+import { ProfileReducer } from 'features/EditableProfileCard';
 import { ArticlePageReducer } from 'pages/ArticlesPage/model/slice/articlesPageSlice';
 import { ArticleDetailsPageReducers } from 'pages/ArticleDetailsPage';
-import { ProfileReducer } from 'features/EditableProfileCard';
 
 const defaultAsyncReducers : ReducersList = {
     loginForm: LoginReducer,
@@ -15,7 +15,7 @@ const defaultAsyncReducers : ReducersList = {
     articleDetail: ArticleDetailReducer,
     profile: ProfileReducer,
     articlesPage: ArticlePageReducer,
-    ArticleDetailsPage: ArticleDetailsPageReducers,
+    articleDetailsPage: ArticleDetailsPageReducers,
 };
 
 export const StoreDecorator = (

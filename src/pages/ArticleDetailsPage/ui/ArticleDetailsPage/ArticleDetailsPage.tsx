@@ -14,7 +14,7 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 interface ArticleDetailsPageProps {}
 
 const reducers : ReducersList = {
-    ArticleDetailsPage: ArticleDetailsPageReducers,
+    articleDetailsPage: ArticleDetailsPageReducers,
 };
 
 export const ArticleDetailsPage : FC<ArticleDetailsPageProps> = () => {

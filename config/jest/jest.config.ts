@@ -45,4 +45,12 @@ export default {
     },
     setupFilesAfterEnv: ['<rootDir>/config/jest/jest-setup.ts'],
 
+    reporters: [
+        'default',
+        ['./node_modules/jest-html-reporter', {
+            pageTitle: 'Test Report',
+            outputPath: path.resolve(__dirname, 'test-report/index.html'),
+            includeFailureMsg: false,
+        }],
+    ],
 };

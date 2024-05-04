@@ -8,3 +8,5 @@ export {
     StoreProvider, StateSchema, ReduxStoreWithManager, AppDispatch,
     ThunkExtraArg, ThunkConfig,
 };
+
+// export { defaultAsyncReducers } from './config/StateSchema';

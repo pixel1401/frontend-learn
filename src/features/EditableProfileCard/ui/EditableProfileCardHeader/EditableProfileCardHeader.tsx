@@ -38,14 +38,15 @@ export const EditableProfileCardHeader = () => {
 
     return (
         <>
-            <div className={cls.ProfilePageHeader}>
-                <Text title={t('Profile')} />
+            <div className={cls.ProfilePageHeader} data-testid="EditableProfileCardHeader.Container">
+                <Text title={t('Profile')} data-testid="EditableProfileCardHeader.Title" />
                 { readonly
                     ? (
                         <Button
                             className={cls.editBtn}
                             theme={ButtonTheme.OUTLINE}
                             onClick={onEdit}
+                            data-testid="EditableProfileCardHeader.EditButton"
                         >
                             {t('Редактировать')}
                         </Button>
@@ -56,6 +57,7 @@ export const EditableProfileCardHeader = () => {
                                 className={cls.editBtn}
                                 theme={ButtonTheme.OUTLINE_RED}
                                 onClick={onCancelEdit}
+                                data-testid="EditableProfileCardHeader.CancelBtn"
                             >
                                 {t('Отменить')}
                             </Button>
@@ -63,6 +65,7 @@ export const EditableProfileCardHeader = () => {
                                 className={cls.saveBtn}
                                 theme={ButtonTheme.OUTLINE}
                                 onClick={onSave}
+                                data-testid="EditableProfileCardHeader.SaveButton"
                             >
                                 {t('Сохранить')}
                             </Button>
