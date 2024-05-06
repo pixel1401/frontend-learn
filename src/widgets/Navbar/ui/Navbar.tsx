@@ -4,7 +4,9 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import { UserActions, getUserAuthData } from 'entities/User';
+import {
+    UserActions, getUserAuthData, isUserAdmin, isUserManager,
+} from 'entities/User';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -22,6 +24,8 @@ export const Navbar = ({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
 
     const userAuthData = useSelector(getUserAuthData);
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
@@ -57,6 +61,10 @@ export const Navbar = ({ className }: NavbarProps) => {
                         <Avatar size={30} src={userAuthData.avatar} />
                     )}
                     items={[
+                        ...(isAdmin || isManager ? [{
+                            content: t('Админка'),
+                            href: RoutePath.admin_panel,
+                        }] : []),
                         {
                             content: t('Профиль'),
                             href: RoutePath.profile + userAuthData.id,

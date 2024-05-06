@@ -1,5 +1,6 @@
 {
   "": "",
+  "AdminPanel": "AdminPanel",
   "Hello World": "Hello World",
   "LOGO": "LOGO",
   "Profile": "Profile",
@@ -7,6 +8,7 @@
   "by Erzhan": "by Erzhan",
   "show Modal": "show Modal",
   "throw error": "throw error",
+  "Админка": "Админка",
   "Айти": "Айти",
   "Ваш возраст": "Ваш возраст",
   "Ваша фамилия": "Ваша фамилия",

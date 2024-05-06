@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Dispatch } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { UserActions } from 'entities/User';
+import { User, UserActions, UserRole } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { loginByUsername } from './loginByUsername';
 
@@ -43,7 +43,7 @@ describe('loginByUsername', () => {
     // });
 
     test('test async action', async () => {
-        const userValue = { username: 'admin', id: '1' };
+        const userValue : User = { username: 'admin', id: '1', role: [UserRole.ADMIN] };
 
         const thunk = new TestAsyncThunk(loginByUsername);
         thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
