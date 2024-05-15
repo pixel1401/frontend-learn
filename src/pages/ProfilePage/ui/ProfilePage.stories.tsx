@@ -4,6 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import avatar from 'shared/assets/test/storybook.jpg';
+import { ValidateProfileError } from 'entities/Profile';
 import ProfilePage from './ProfilePage';
 
 export default {
@@ -20,7 +21,8 @@ export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [StoreDecorator({
     profile: {
-        isLoading: true,
+        isLoading: false,
+        validateErrors: [ValidateProfileError.NO_DATA],
     },
 })];
 

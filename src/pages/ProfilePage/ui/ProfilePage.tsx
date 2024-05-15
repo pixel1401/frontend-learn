@@ -12,10 +12,6 @@ const ProfilePage : FC<ProfilePageProps> = () => {
     const { t } = useTranslation();
     const params = useParams<{id: string}>();
 
-    if (!params.id) {
-        return <Text title="Not Id" theme={TextTheme.ERROR} />;
-    }
-
     return (
         <Page>
             <Text title="Profile page" />

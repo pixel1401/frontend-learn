@@ -1,4 +1,5 @@
 import { addDecorator } from '@storybook/react';
+import withMock from 'storybook-addon-mock';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '../../src/app/providers/ThemeProvider';
@@ -19,3 +20,4 @@ addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(RouterDecorator);
 addDecorator(StoreDecorator({ user: {} }));
+addDecorator(withMock);

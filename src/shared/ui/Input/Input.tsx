@@ -78,7 +78,7 @@ export const Input = memo((props: InputProps) => {
                     ? (
                         <input
                             {...register(registerName, {
-                                onBlur(event) {
+                                onBlur() {
                                     onBlurCustome();
                                 },
                             })}
