@@ -3,4 +3,4 @@ import { AddCommentForm } from './ui/AddCommentForm/AddCommentForm';
 
 export { AddCommentForm };
 
-export { AddCommentFormSchema };
+export type { AddCommentFormSchema };

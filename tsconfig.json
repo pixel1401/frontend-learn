@@ -35,6 +35,7 @@
     // можно писать такой
     // import React from 'react';
     "allowSyntheticDefaultImports": true,
+    "isolatedModules": true
   },
   "include": [
     "src/**/*.ts",

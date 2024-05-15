@@ -4,7 +4,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
 import { SortOrder } from 'shared/types';
 import { ListBox } from 'shared/ui/ListBox/ListBox';
-import { ArticleSortField } from '../../model/types/article';
+import { ArticleSortField } from '../../model/const/consts';
 import cls from './ArticleSortSelector.module.scss';
 
 interface ArticleSortSelectorProps {

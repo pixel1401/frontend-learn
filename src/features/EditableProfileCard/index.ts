@@ -1,3 +1,4 @@
+import { ValidateProfileError } from './model/consts/consts';
 import { getProfileData } from './model/selectors/getProfileData/getProfileData';
 import { getProfileError } from './model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from './model/selectors/getProfileForm/getProfileForm';
@@ -13,8 +14,8 @@ import { ProfileSchema } from './model/types/editableProfileCardSchema';
 export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';
 export { EditableProfileCardHeader } from './ui/EditableProfileCardHeader/EditableProfileCardHeader';
 
-export { ProfileSchema };
-
+export type { ProfileSchema };
+export { ValidateProfileError };
 export {
     getProfileError, getProfileData, getProfileLoading, getProfileForm, getProfileReadonly, getProfileValidateErrors,
 };

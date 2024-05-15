@@ -6,11 +6,11 @@ import { Currency } from 'entities/Currency';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import useInitialEffect from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { ValidateProfileError } from 'entities/Profile/model/type/profile';
 import { useSelector } from 'react-redux';
 import { ProfileCard } from 'entities/Profile';
 
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ValidateProfileError } from 'features/EditableProfileCard';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';

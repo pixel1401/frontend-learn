@@ -5,6 +5,6 @@ import { ArticleDetailsPage } from './ui/ArticleDetailsPage/ArticleDetailsPage';
 
 export { ArticleDetailsPage };
 
-export { ArticleDetailsPageSchema };
+export type { ArticleDetailsPageSchema };
 
 export { ArticleDetailsPageReducers };

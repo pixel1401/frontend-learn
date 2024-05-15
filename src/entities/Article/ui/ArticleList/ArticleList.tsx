@@ -11,7 +11,8 @@ import { PAGE_ID } from 'widgets/Page/Page';
 import { ArticleListItemSkeleton } from '../../ui/ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
-import { Article, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
+import { ArticleView } from '../../model/const/consts';
 
 interface ArticleListProps {
   className?: string;

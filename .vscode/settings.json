@@ -8,6 +8,7 @@
     "i18n-ally.keystyle": "nested",
     "i18next.i18nPaths": "c:/Users/Acer/Desktop/typescript/frontend-learn/public/locales",
     "cSpell.words": [
+        "consts",
         "testid"
     ],
     "typescript.preferences.importModuleSpecifier": "non-relative"

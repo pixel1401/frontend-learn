@@ -21,7 +21,8 @@ import {
     getArticleDetailsError,
     getArticleDetailsLoading,
 } from '../../model/selectors/articleDetails';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlock } from '../../model/types/article';
+import { ArticleBlockType } from '../../model/const/consts';
 
 interface ArticleDetailsProps {
     className?: string;
