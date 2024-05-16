@@ -17,7 +17,7 @@ const reducers : ReducersList = {
     articleDetailsPage: ArticleDetailsPageReducers,
 };
 
-export const ArticleDetailsPage : FC<ArticleDetailsPageProps> = () => {
+const ArticleDetailsPage : FC<ArticleDetailsPageProps> = () => {
     const { t } = useTranslation();
     const params = useParams<{id: string}>();
 
@@ -42,3 +42,5 @@ export const ArticleDetailsPage : FC<ArticleDetailsPageProps> = () => {
 
     );
 };
+
+export default ArticleDetailsPage;

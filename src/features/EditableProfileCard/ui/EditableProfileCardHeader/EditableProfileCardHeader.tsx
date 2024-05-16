@@ -6,16 +6,16 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useCallback } from 'react';
 import { } from 'entities/Profile';
 import { getUserAuthData } from 'entities/User';
-import {
-    getProfileReadonly, ProfileActions, getProfileData, updateProfileData,
-} from 'features/EditableProfileCard';
 import cls from './EditableProfileCardHeader.module.scss';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { ProfileActions } from '../../model/slice/profile';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 
 export const EditableProfileCardHeader = () => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const readonly = useSelector(getProfileReadonly);
-
     const authData = useSelector(getUserAuthData);
     const profileData = useSelector(getProfileData);
     const canEdit = authData?.id === profileData?.id;
