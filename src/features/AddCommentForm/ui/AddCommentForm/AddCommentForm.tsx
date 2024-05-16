@@ -22,9 +22,8 @@ const schema = z.object({
     text: z.string({ description: 'Description' }).min(5, 'Must be 5 or more characters long'),
 });
 type FormType = z.infer<typeof schema>;
-
 interface AddCommentFormProps {
-    onSendComment: (text :string) => void
+    onSendComment: (text :string) => void,
 }
 export const AddCommentForm : FC<AddCommentFormProps> = ({ onSendComment }) => {
     const { t } = useTranslation();

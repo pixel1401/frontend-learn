@@ -22,5 +22,8 @@ export function buildWebPackConfig(options : BuildOptions) : Configuration {
         resolve: buildResolvers(options),
         devtool: 'inline-source-map',
         devServer: options.isDev ? buildDevServer(options) : undefined,
+        watchOptions: {
+            ignored: /node_modules/,
+        },
     };
 }
