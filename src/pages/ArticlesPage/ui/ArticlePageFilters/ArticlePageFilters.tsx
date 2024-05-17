@@ -107,7 +107,7 @@ export const ArticlePageFilters: FC<ArticlePageFiltersProps> = ({ className }) =
                 <Input
                     onChange={handleSearch}
                     value={search}
-                    placeholder="Enter your text"
+                    placeholder={t('Enter your text')}
                 />
             </Card>
             <ArticleTypeTabs

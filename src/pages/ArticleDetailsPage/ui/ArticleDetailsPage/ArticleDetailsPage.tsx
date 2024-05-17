@@ -27,7 +27,7 @@ const ArticleDetailsPage : FC<ArticleDetailsPageProps> = () => {
     // }, [navigate]);
 
     if (!params.id) {
-        return <Page>NOT ID</Page>;
+        return <Page>{t('NOT ID')}</Page>;
     }
 
     return (
